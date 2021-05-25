@@ -138,4 +138,25 @@ async def create_new_role(ctx, name):
     await ctx.send('transaction complete')
 
 
+@bot.command()
+async def mint(ctx, item):
+    if await check_funds(ctx, 10) is False:
+        await ctx.send('transaction canceled')
+        return
+
+    users = await bank_info()
+    for user in users:
+        if item in users[user]:
+            ctx.send(f"This item is already owned by {ctx.guild.get_member(int(user))}")
+            return
+    ctx.send("enter a brief description for this item")
+    def check(msg):
+        return msg.author == user
+    item_description = await bot.wait_for('message', check=check)
+    users[str(ctx.author.id)][str(item)] = item_description
+
+    await dump(users)
+
+
+
 bot.run(TOKEN)
