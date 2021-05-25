@@ -1,13 +1,13 @@
 import os
 import json
 from discord.ext import commands, tasks
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 import discord
 
-#load_dotenv()
-TOKEN = 'ODQ0NzI3MDE1NDgzNjM3Nzgw.YKWnVg.fgzScE7h00Ra-nauoGPPbZmBdu0'
-#SERVER = os.getenv("DISCORD_SERVER")
+load_dotenv()
 
+#SERVER = os.getenv("DISCORD_SERVER")
+TOKEN = os.getenv("DISCORD_TOKEN")
 bot = commands.Bot(command_prefix="$")
 
 @bot.event
