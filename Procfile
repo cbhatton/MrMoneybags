@@ -1,0 +1,1 @@
+worker: python MrMonybags/main.py
