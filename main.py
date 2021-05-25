@@ -62,7 +62,6 @@ async def drip():
                 if voices[user].afk is False:
                     await open_account(user)
                     wallets[str(user)]['cash'] += 1
-                    print('drop')
                     await dump(wallets)
 
 
