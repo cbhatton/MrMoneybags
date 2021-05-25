@@ -1,1 +1,1 @@
-worker: python MrMonybags/main.py
+worker: python main.py
